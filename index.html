@@ -24,16 +24,76 @@
             background-color:white;
             transition-duration: 0.4s;
             cursor: pointer;
+            margin: 20px;
         } 
+        .codeDiv {
+            width: 60%;
+            height: 600px;
+            text-align: left;
+            background-color: #282c34;
+            overflow-y: auto;
+            overflow-x: hidden;
+            color:#abb2bf; 
+            padding-left: 30px;
+            padding-top: 30px;
+            border-radius: 8px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+        }
+        a:link {
+        text-decoration: none;
+        color: black;
+        }
+
+        a:visited {
+        text-decoration: none;
+        color: black;
+        }
+
+        a:hover {
+        text-decoration: none;
+        color: black;
+        }
+
+        a:active {
+        text-decoration: none;
+        color: black;
+        }
     </style>
 </head>
 <body>
-    <br><br><br>
     <center>
         <button class="button">
-            <a href="javascript:czateria_cleanup = function(){document.getElementsByClassName('floatbox-box-background')[0].style.background='#2c2c2c';var e=document.getElementById('mainHeader');void 0!==e&&null!=e&&document.getElementById('mainHeader').remove(),document.getElementById('m-tab-main-container-1').style.height='100%',document.querySelectorAll('[id^=m-users-ordinary]')[0].remove()};czateria_cleanup();setInterval(czateria_cleanup, 10000);">
-            &#129313;</a><br>Czateria mod
+            <a href="javascript:czateria_cleanup = function(){document.getElementsByClassName('floatbox-box-background')[0].style.background='#2c2c2c';var e=document.getElementById('mainHeader');void 0!==e&&null!=e&&e.remove();document.getElementById('m-tab-main-container-1').style.height='100%';document.querySelectorAll('[id^=m-users-ordinary]')[0].remove()};czateria_cleanup();setInterval(czateria_cleanup, 10000);">
+            &#129313;<br>Modyfikuj czaterie</a>
         </button>
+
+        <div id="codeDiv" class="codeDiv">
+Prosty skrypt napisany w JavaScript modyfikujacy wyglad okna czaterii. Skrypt na chwile obecna oferuje nastepujace funkcje: 
+<ul><li>Zmiana koloru tla na szary</li><li>Usuniecie gornej reklamy</li><li>Rozciagniecie okna rozmowy na cala wysokosc ekranu</li><li>Usuniecie niezarejestrowanych uzytkownikow z listy uzytkownikow po prawej stronie</li></ul>
+
+Sposob uzycia:
+<ol><li>Upewnij sie iz pasek zakladek w przegladarce jest widoczny (wiekszosci przegladarek skrypt CTRL + B pokazuje/ukrywa pasek zakladek)</li><li>Przeciagnij przycisk z klaunem na pasek zakladek</li><li>Bedac w oknie czaterii kliknij na przycisk na pasku zakladek</li></ol>
+Caly kod skryptu z komentarzami:
+
+<font color = "lime">//zainicjuj funkcje czateria_cleanup</font>
+czateria_cleanup = function(){
+    <font color = "lime">//zmien kolor tla na szary</font>
+    document.getElementsByClassName("floatbox-box-background")[0].style.background="#2c2c2c";
+    <font color = "lime">//sprobuj znalezc element gornej ramki z reklama</font>
+    var e=document.getElementById("mainHeader");
+    <font color = "lime">//jezeli gorna ramka z reklama jest znaleziona to ja usun</font>    
+    void 0!==e&&null!=e&&e.remove();
+    <font color = "lime">//na liscie uzytkownikow znajdz sekcje z niezarejestrowanymi uzytkownikami i ja usun</font>        
+    document.getElementById("m-tab-main-container-1").style.height="100%";document.querySelectorAll("[id^=m-users-ordinary]")[0].remove()
+    <font color = "lime">//koniec funkcji</font>  
+    };
+<font color = "lime">//odpal funkcje na wstepie</font>  
+czateria_cleanup();
+<font color = "lime">//ustaw interwal ktory odpali funkcje czateria_cleanup raz na 10 sekund</font>  
+setInterval(czateria_cleanup, 10000);
+        </div>
     </center>
 </body>
 </html>
