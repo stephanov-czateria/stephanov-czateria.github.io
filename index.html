@@ -13,19 +13,7 @@
         a {
             text-decoration: none;
         }
-        .button {
-            vertical-align: middle;
-            padding: 5px 30px;
-            border-radius: 8px;
-            border: none;
-            margin: 10px;
-            font-family: 'Arial';
-            font-size: xx-large;
-            background-color:white;
-            transition-duration: 0.4s;
-            cursor: pointer;
-            margin: 20px;
-        } 
+
         .codeDiv {
             width: 60%;
             height: 600px;
@@ -64,10 +52,9 @@
 </head>
 <body>
     <center>
-        <button class="button">
-            <a href="javascript:czateria_cleanup = function(){document.getElementsByClassName('floatbox-box-background')[0].style.background='#2c2c2c';var e=document.getElementById('mainHeader');void 0!==e&&null!=e&&e.remove();document.getElementById('m-tab-main-container-1').style.height='100%';document.querySelectorAll('[id^=m-users-ordinary]')[0].remove()};czateria_cleanup();setInterval(czateria_cleanup, 10000);">
-            &#129313;<br>Modyfikuj czaterie</a>
-        </button>
+        <br><br>
+
+        <a href="javascript:(czateria_cleanup = function(){document.getElementsByClassName('floatbox-box-background')[0].style.background='#2c2c2c';var e=document.getElementById('mainHeader');void 0!==e&&null!=e&&e.remove();document.getElementById('m-tab-main-container-1').style.height='100%';document.querySelectorAll('[id^=m-users-ordinary]')[0].remove()});czateria_cleanup();" style="font-size:80px">&#129313;<br>Modyfikuj czaterie</a>
 
         <div id="codeDiv" class="codeDiv">
 Prosty skrypt napisany w JavaScript modyfikujacy wyglad okna czaterii. Skrypt na chwile obecna oferuje nastepujace funkcje: 
@@ -91,8 +78,6 @@ czateria_cleanup = function(){
     };
 <font color = "lime">//odpal funkcje na wstepie</font>  
 czateria_cleanup();
-<font color = "lime">//ustaw interwal ktory odpali funkcje czateria_cleanup raz na 10 sekund</font>  
-setInterval(czateria_cleanup, 10000);
         </div>
     </center>
 </body>
