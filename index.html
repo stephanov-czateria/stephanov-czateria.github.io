@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Czateria mod v0.6</title>
+    <title>Czateria mod v0.7</title>
     <style>
         body {
             background-color: black;
@@ -57,38 +57,36 @@
         <a href="javascript:(czateria_cleanup=function(){document.getElementsByClassName('floatbox-box-background')[0].style.background='#2c2c2c';var%20e=document.getElementById('mainHeader');void%200!==e&&null!=e&&e.remove(),document.getElementById('m-tab-main-container-1').style.height='100%',document.querySelectorAll('[id^=m-users-ordinary]')[0].remove(),document.getElementsByClassName('m-game%20js-play-game')[0].remove()})();for(var%20x,arr=['contextmenu','copy','paste'],i=0;x=arr[i];i++)window['on'+x]&&(window['on'+x]=null),window.addEventListener(x,function(e){e.stopPropagation()},!0);var%20test=setInterval(czateria_cleanup,1e4);" style="font-size:80px">&#129313;<br>Modyfikuj czaterie</a>
 
         <div id="codeDiv" class="codeDiv">
-            Prosty skrypt napisany w JavaScript modyfikujacy wyglad okna czaterii. Skrypt na chwile obecna oferuje nastepujace funkcje: 
-            <ul><li>Zmiana koloru tla na szary</li><li>Usuniecie gornej reklamy</li><li>Rozciagniecie okna rozmowy na cala wysokosc ekranu</li><li>Usuniecie niezarejestrowanych uzytkownikow z listy uzytkownikow po prawej stronie</li><li>Mozliwosc wklejania tekstu do okna rozmowy</li></ul>
-            
-            Sposob uzycia:
-            <ol><li>Upewnij sie iz pasek zakladek w przegladarce jest widoczny (wiekszosci przegladarek skrypt CTRL + B pokazuje/ukrywa pasek zakladek)</li><li>Przeciagnij przycisk z klaunem na pasek zakladek</li><li>Bedac w oknie czaterii kliknij na przycisk na pasku zakladek</li></ol>
-            Caly kod skryptu z komentarzami:
+Prosty skrypt napisany w JavaScript modyfikujacy wyglad okna czaterii. Skrypt na chwile obecna oferuje nastepujace funkcje: 
+<ul><li>Zmiana koloru tla na szary</li><li>Usuniecie gornej reklamy</li><li>Rozciagniecie okna rozmowy na cala wysokosc ekranu</li><li>Usuniecie niezarejestrowanych uzytkownikow z listy uzytkownikow po prawej stronie</li><li>Mozliwosc wklejania tekstu do okna rozmowy</li></ul>
 
-        Caly kod skryptu z komentarzami:
+Sposob uzycia:
+<ol><li>Upewnij sie iz pasek zakladek w przegladarce jest widoczny (wiekszosci przegladarek skrypt CTRL + B pokazuje/ukrywa pasek zakladek)</li><li>Przeciagnij przycisk z klaunem na pasek zakladek</li><li>Bedac w oknie czaterii kliknij na przycisk na pasku zakladek</li></ol>
+Caly kod skryptu z komentarzami:
 
-        <font color = "lime">//zainicjuj funkcje czateria_cleanup</font>
-        czateria_cleanup = function(){
-            <font color = "lime">//zmien kolor tla na szary</font>
-            document.getElementsByClassName("floatbox-box-background")[0].style.background="#2c2c2c";
-            <font color = "lime">//sprobuj znalezc element gornej ramki z reklama</font>
-            var e=document.getElementById("mainHeader");
-            <font color = "lime">//jezeli gorna ramka z reklama jest znaleziona to ja usun</font>    
-            void 0!==e&&null!=e&&e.remove();
-            <font color = "lime">//na liscie uzytkownikow znajdz sekcje z niezarejestrowanymi uzytkownikami i ja usun</font>        
-            document.getElementById("m-tab-main-container-1").style.height="100%";document.querySelectorAll("[id^=m-users-ordinary]")[0].remove()
-            <font color = "lime">//koniec funkcji</font>  
-            };
-        <font color = "lime">//odpal funkcje na wstepie</font>  
-        czateria_cleanup();
-        <font color = "lime"></font>// dodaj opcje kopiowania i wklejania</font>-
-        var arr = ['contextmenu','copy','paste'];
-        for(var i = 0, x; x = arr[i]; i++){
-            if(window['on' + x])window['on' + x] = null;
-            window.addEventListener(x, function(e){e.stopPropagation()}, true);
-        };
-        <font color = "lime">//zalacz licznik i czysc co 10 sekund (wymagane do wyczyszczenia niezarejestrowanych po zmianie pokoju)</font>  
-        var test = setInterval(czateria_cleanup, 10000);
-                </div>
+<font color = "lime">//zainicjuj funkcje czateria_cleanup</font>
+czateria_cleanup = function(){
+    <font color = "lime">//zmien kolor tla na szary</font>
+    document.getElementsByClassName("floatbox-box-background")[0].style.background="#2c2c2c";
+    <font color = "lime">//sprobuj znalezc element gornej ramki z reklama</font>
+    var e=document.getElementById("mainHeader");
+    <font color = "lime">//jezeli gorna ramka z reklama jest znaleziona to ja usun</font>    
+    void 0!==e&&null!=e&&e.remove();
+    <font color = "lime">//na liscie uzytkownikow znajdz sekcje z niezarejestrowanymi uzytkownikami i ja usun</font>        
+    document.getElementById("m-tab-main-container-1").style.height="100%";document.querySelectorAll("[id^=m-users-ordinary]")[0].remove()
+    <font color = "lime">//koniec funkcji</font>  
+    };
+<font color = "lime">//odpal funkcje na wstepie</font>  
+czateria_cleanup();
+<font color = "lime">// dodaj opcje kopiowania i wklejania</font>
+var arr = ['contextmenu','copy','paste'];
+for(var i = 0, x; x = arr[i]; i++){
+    if(window['on' + x])window['on' + x] = null;
+    window.addEventListener(x, function(e){e.stopPropagation()}, true);
+};
+<font color = "lime">//zalacz licznik i czysc co 10 sekund (wymagane do wyczyszczenia niezarejestrowanych po zmianie pokoju)</font>  
+var test = setInterval(czateria_cleanup, 10000);
+        </div>
     </center>
 </body>
 </html>
