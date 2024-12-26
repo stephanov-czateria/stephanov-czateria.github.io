@@ -58,7 +58,7 @@
 
         <div id="codeDiv" class="codeDiv">
 Prosty skrypt napisany w JavaScript modyfikujacy wyglad okna czaterii. Skrypt na chwile obecna oferuje nastepujace funkcje: 
-<ul><li>Zmiana koloru tla na szary</li><li>Usuniecie gornej reklamy</li><li>Rozciagniecie okna rozmowy na cala wysokosc ekranu</li><li>Usuniecie niezarejestrowanych uzytkownikow z listy uzytkownikow po prawej stronie</li><li>Mozliwosc wklejania tekstu do okna rozmowy</li></ul>
+<ul><li>Zmiana koloru tla na szary</li><li>Usuniecie gornej reklamy</li><li>Rozciagniecie okna rozmowy na cala wysokosc ekranu</li><li>Usuniecie niezarejestrowanych uzytkownikow z listy uzytkownikow po prawej stronie</li><li>Mozliwosc wklejania tekstu do okna rozmowy</li><li>Automatyczne zamkniecie okna [graj na czaterii]</li></ul>
 
 Sposob uzycia:
 <ol><li>Upewnij sie iz pasek zakladek w przegladarce jest widoczny (wiekszosci przegladarek skrypt CTRL + B pokazuje/ukrywa pasek zakladek)</li><li>Przeciagnij przycisk z klaunem na pasek zakladek</li><li>Bedac w oknie czaterii kliknij na przycisk na pasku zakladek</li></ol>
@@ -74,6 +74,8 @@ czateria_cleanup = function(){
     void 0!==e&&null!=e&&e.remove();
     <font color = "lime">//na liscie uzytkownikow znajdz sekcje z niezarejestrowanymi uzytkownikami i ja usun</font>        
     document.getElementById("m-tab-main-container-1").style.height="100%";document.querySelectorAll("[id^=m-users-ordinary]")[0].remove()
+    <font color = "lime">//znajdz i wyrzuc okno [zagraj w czaterii]</font>  
+    document.getElementsByClassName('m-game js-play-game')[0].remove() 
     <font color = "lime">//koniec funkcji</font>  
     };
 <font color = "lime">//odpal funkcje na wstepie</font>  
