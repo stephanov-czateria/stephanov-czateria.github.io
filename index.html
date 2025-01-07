@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Czateria mod v0.8</title>
+    <title>Czateria mod v0.9</title>
     <style>
         body {
             background-color: black;
@@ -54,7 +54,7 @@
     <center>
         <br><br>
 
-        <a href="javascript: (() => {const $j=jQuery.noConflict(),ignorowani_uzytkownicy=new Set;void 0!==localStorage.ignored?(JSON.parse(localStorage.ignored).forEach(i=>ignorowani_uzytkownicy.add(i)),ignorowani_uzytkownicy.forEach(i=>$j('div.m-list-user-item:contains('+i+')').addClass('ignored'))):localStorage.ignored=JSON.stringify(Array.from(ignorowani_uzytkownicy)),$j('.floatbox-box-background')[0].style.background='#2c2c2c',$j('#mainHeader').remove(),$j('#m-tab-main-container-1')[0].style.height='100%',['copy','paste','contextmenu'].forEach(i=>window.addEventListener(i,i=>i.stopPropagation(),!0)),$j('div[id^=m-users-ordinary]')[0].remove(),$j('.js-play-game')[0].remove(),czateria_cleanup=function(){void 0!==$j('div[id^=m-users-ordinary]')[0]&&$j('div[id^=m-users-ordinary]')[0].remove(),void 0!==$j('.js-play-game')[0]&&$j('.js-play-game')[0].remove();for(let i=0;i<$j('div.ignored').length;i++)ignorowani_uzytkownicy.add($j('div.ignored')[i].innerText),localStorage.ignored=JSON.stringify(Array.from(ignorowani_uzytkownicy)),ignorowani_uzytkownicy.forEach(i=>$j('div.m-list-user-item:contains('+i+')').addClass('ignored'))};var test=setInterval(czateria_cleanup,5e3);})();" style="font-size:80px">&#129313;</a><br><br>
+        <a href="javascript: (() => {const $j=jQuery.noConflict(),ignorowani_uzytkownicy=new Set;void 0!==localStorage.ignored?(JSON.parse(localStorage.ignored).forEach(i=>ignorowani_uzytkownicy.add(i)),ignorowani_uzytkownicy.forEach(i=>{$j('div.m-list-user-item:contains('+i+')').addClass('ignored'),CHNS.listUsersOperations.ignoredUsersList.includes(i.hashCode())||CHNS.listUsersOperations.ignoredUsersList.push(i.hashCode())})):localStorage.ignored=JSON.stringify(Array.from(ignorowani_uzytkownicy)),$j('.floatbox-box-background')[0].style.background='#2c2c2c',$j('#mainHeader').remove(),$j('#m-tab-main-container-1')[0].style.height='100%',['copy','paste','contextmenu'].forEach(i=>window.addEventListener(i,i=>i.stopPropagation(),!0)),$j('div[id^=m-users-ordinary]')[0].remove(),$j('.js-play-game')[0].remove(),czateria_cleanup=function(){void 0!==$j('div[id^=m-users-ordinary]')[0]&&$j('div[id^=m-users-ordinary]')[0].remove(),void 0!==$j('.js-play-game')[0]&&$j('.js-play-game')[0].remove();for(let i=0;i<$j('div.ignored').length;i++)ignorowani_uzytkownicy.add($j('div.ignored')[i].innerText),localStorage.ignored=JSON.stringify(Array.from(ignorowani_uzytkownicy)),ignorowani_uzytkownicy.forEach(i=>{$j('div.m-list-user-item:contains('+i+')').addClass('ignored'),CHNS.listUsersOperations.ignoredUsersList.includes(i.hashCode())||CHNS.listUsersOperations.ignoredUsersList.push(i.hashCode())})};var test=setInterval(czateria_cleanup,5e3);})();" style="font-size:80px">&#129313;</a><br><br>
 
         <div id="codeDiv" class="codeDiv">
 Prosty skrypt napisany w JavaScript modyfikujacy wyglad okna czaterii. Skrypt na chwile obecna oferuje nastepujace funkcje: 
@@ -73,7 +73,13 @@ if (localStorage.ignored !== undefined) {
     <font color = "lime">//jezeli localStorage.ignored istnieje dodaj wszystkich ignorowanych uzytkownikow do ignorowani_uzytkownicy</font>
     JSON.parse(localStorage.ignored).forEach(item => ignorowani_uzytkownicy.add(item))
     <font color = "lime">//ignoruj ich</font>
-    ignorowani_uzytkownicy.forEach(key => $j("div.m-list-user-item:contains" +'(' +  key + ')').addClass('ignored'));
+    ignorowani_uzytkownicy.forEach(key => {
+        $j("div.m-list-user-item:contains" +'(' +  key + ')').addClass('ignored')
+        if (!CHNS.listUsersOperations.ignoredUsersList.includes(key.hashCode())) {
+            CHNS.listUsersOperations.ignoredUsersList.push(key.hashCode());
+          }
+        }
+    );
 } else {
     <font color = "lime">//jezeli localStorage.ignored nie istnieje stworz localStorage.ignored</font>
     localStorage.ignored = JSON.stringify(Array.from(ignorowani_uzytkownicy));
@@ -87,25 +93,33 @@ $j("#m-tab-main-container-1")[0].style.height="100%";
 <font color = "lime">// dodaj opcje kopiowania i wklejania</font>
 ['copy','paste','contextmenu'].forEach( evt => 
     window.addEventListener(evt, e => e.stopPropagation(), true))
-<font color = "lime">//na liscie uzytkownikow znajdz sekcje z niezarejestrowanymi uzytkownikami i ja usun</font>
+<font color = "lime">//na liscie uzytkownikow znajdz sekcje z niezarejestrowanymi uzytkownikami i ja usun</font> 
 $j("div[id^=m-users-ordinary]")[0].remove();
 <font color = "lime">//znajdz i wyrzuc okno [zagraj w czaterii]</font>
 $j(".js-play-game")[0].remove();
 <font color = "lime">//zainicjuj funkcje czateria_cleanup</font>
 czateria_cleanup = function(){
-    <font color = "lime">//na liscie uzytkownikow znajdz sekcje z niezarejestrowanymi uzytkownikami i ja usun </font>  
+    <font color = "lime">//na liscie uzytkownikow znajdz sekcje z niezarejestrowanymi uzytkownikami i ja usun</font>
     if ($j("div[id^=m-users-ordinary]")[0] !== undefined) {$j("div[id^=m-users-ordinary]")[0].remove()};
     <font color = "lime">//znajdz i wyrzuc okno [zagraj w czaterii]</font>
     if ($j(".js-play-game")[0] !== undefined) {$j(".js-play-game")[0].remove()};
-    <font color = "lime">//sprawdz czy sa nowi ignorowani uzytkownicy i dodaj ich to localStorage</font>
+    <font color = "lime">//sprawdz czy sa nowi ignorowani uzytkownicy i dodaj ich to localStorage i do listy ignorowanych</font>
     for (let i = 0; i < $j("div.ignored").length; i++) {
         ignorowani_uzytkownicy.add($j("div.ignored")[i].innerText)
         localStorage.ignored = JSON.stringify(Array.from(ignorowani_uzytkownicy))
+        ignorowani_uzytkownicy.forEach(key => {
+            $j("div.m-list-user-item:contains" +'(' +  key + ')').addClass('ignored')
+            if (!CHNS.listUsersOperations.ignoredUsersList.includes(key.hashCode())) {
+                CHNS.listUsersOperations.ignoredUsersList.push(key.hashCode());
+              }
+            }
+        );
     }; 
-    <font color = "lime">//koniec funkcji</font>
+    <font color = "lime">//koniec funkcji </font>
 };
-<font color = "lime">//zalacz licznik i czysc co 5 sekund (wymagane do wyczyszczenia niezarejestrowanych po zmianie pokoju, i wyrzucenia okna gry przy zmianie pokoju)</font>
+<font color = "lime">//zalacz licznik i czysc co 5 sekund (wymagane do wyczyszczenia niezarejestrowanych po zmianie pokoju, i wyrzucenia okna gry przy zmianie pokoju)</font>  
 var test = setInterval(czateria_cleanup, 5000);
+
         </div>
     </center>
 </body>
