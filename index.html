@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Czateria mod v0.91</title>
+    <title>Czateria mod v0.92</title>
     <style>
         body {
             background-color: black;
@@ -54,7 +54,7 @@
     <center>
         <br><br>
 
-        <a href="javascript: (() => {const $j=jQuery.noConflict(),ignorowani_uzytkownicy=new Set;void 0!==localStorage.ignored?(JSON.parse(localStorage.ignored).forEach(i=>ignorowani_uzytkownicy.add(i)),ignorowani_uzytkownicy.forEach(i=>{$j('div.m-list-user-item:contains('+i+')').addClass('ignored'),CHNS.listUsersOperations.ignoredUsersList.includes(i.hashCode())||CHNS.listUsersOperations.ignoredUsersList.push(i.hashCode())})):localStorage.ignored=JSON.stringify(Array.from(ignorowani_uzytkownicy)),$j('.floatbox-box-background')[0].style.background='#2c2c2c',$j('#mainHeader').remove(),$j('#m-tab-main-container-1')[0].style.height='100%',['copy','paste','contextmenu'].forEach(i=>window.addEventListener(i,i=>i.stopPropagation(),!0)),$j('div[id^=m-users-ordinary]')[0].remove(),$j('.js-play-game')[0].remove(),czateria_cleanup=function(){void 0!==$j('div[id^=m-users-ordinary]')[0]&&$j('div[id^=m-users-ordinary]')[0].remove(),void 0!==$j('.js-play-game')[0]&&$j('.js-play-game')[0].remove();for(let i=0;i<$j('div.ignored').length;i++)ignorowani_uzytkownicy.add($j('div.ignored')[i].innerText),localStorage.ignored=JSON.stringify(Array.from(ignorowani_uzytkownicy)),ignorowani_uzytkownicy.forEach(i=>{$j('div.m-list-user-item:contains('+i+')').addClass('ignored'),CHNS.listUsersOperations.ignoredUsersList.includes(i.hashCode())||CHNS.listUsersOperations.ignoredUsersList.push(i.hashCode())})};var test=setInterval(czateria_cleanup,5e3);})();" style="font-size:80px">&#129313;</a><br><br>
+        <a href="javascript: (() => {const $j=jQuery.noConflict(),ignorowani_uzytkownicy=new Set;void 0!==localStorage.ignored?(JSON.parse(localStorage.ignored).forEach(e=>ignorowani_uzytkownicy.add(e)),ignorowani_uzytkownicy.forEach(e=>{$j('div.m-list-user-item:contains('+e+')').addClass('ignored'),CHNS.listUsersOperations.ignoredUsersList.includes(e.hashCode())||CHNS.listUsersOperations.ignoredUsersList.push(e.hashCode())})):localStorage.ignored=JSON.stringify(Array.from(ignorowani_uzytkownicy)),$j('.floatbox-box-background')[0].style.background='#2c2c2c',$j('.m-messagesTextArea')[0].style.backgroundImage='none',$j('#mainHeader').remove(),$j('#m-tab-main-container-1')[0].style.height='100%',['copy','paste','contextmenu'].forEach(e=>window.addEventListener(e,e=>e.stopPropagation(),!0)),$j('div[id^=m-users-ordinary]')[0].remove(),$j('.js-play-game')[0].remove(),czateria_cleanup=function(){$j('.m-messagesTextArea')[0].style.backgroundImage='none',void 0!==$j('div[id^=m-users-ordinary]')[0]&&$j('div[id^=m-users-ordinary]')[0].remove(),void 0!==$j('.js-play-game')[0]&&$j('.js-play-game')[0].remove();for(let e=0;e<$j('div.ignored').length;e++)ignorowani_uzytkownicy.add($j('div.ignored')[e].innerText),localStorage.ignored=JSON.stringify(Array.from(ignorowani_uzytkownicy)),ignorowani_uzytkownicy.forEach(e=>{$j('div.m-list-user-item:contains('+e+')').addClass('ignored'),CHNS.listUsersOperations.ignoredUsersList.includes(e.hashCode())||CHNS.listUsersOperations.ignoredUsersList.push(e.hashCode())})};var test=setInterval(czateria_cleanup,5e3);})();" style="font-size:80px">&#129313;</a><br><br>
 
         <div id="codeDiv" class="codeDiv">
 Prosty skrypt napisany w JavaScript modyfikujacy wyglad okna czaterii. Skrypt na chwile obecna oferuje nastepujace funkcje: 
@@ -85,7 +85,9 @@ if (localStorage.ignored !== undefined) {
     localStorage.ignored = JSON.stringify(Array.from(ignorowani_uzytkownicy));
 }
 <font color = "lime">//zmien kolor tla na szary</font>
-$j(".floatbox-box-background")[0].style.background="#2c2c2c"; 
+$j(".floatbox-box-background")[0].style.background="#2c2c2c";
+<font color = "lime"></font>//wyrzuc wzorki z okna rozmowy</font>
+$j(".m-messagesTextArea")[0].style.backgroundImage = "none";  
 <font color = "lime">//usun gorna ramke</font>
 $j("#mainHeader").remove();
 <font color = "lime">//rozszerz okno rozmowy na cala wysokosc</font>
@@ -99,6 +101,8 @@ $j("div[id^=m-users-ordinary]")[0].remove();
 $j(".js-play-game")[0].remove();
 <font color = "lime">//zainicjuj funkcje czateria_cleanup</font>
 czateria_cleanup = function(){
+    <font color = "lime"></font>//wyrzuc wzorki z okna rozmowy</font>
+    $j(".m-messagesTextArea")[0].style.backgroundImage = "none"; 
     <font color = "lime">//na liscie uzytkownikow znajdz sekcje z niezarejestrowanymi uzytkownikami i ja usun</font>
     if ($j("div[id^=m-users-ordinary]")[0] !== undefined) {$j("div[id^=m-users-ordinary]")[0].remove()};
     <font color = "lime">//znajdz i wyrzuc okno [zagraj w czaterii]</font>
@@ -123,7 +127,7 @@ var test = setInterval(czateria_cleanup, 5000);
 <br><br><br>
 <font color = "lime">//minified JS</font>
 
-javascript: (() => {const $j=jQuery.noConflict(),ignorowani_uzytkownicy=new Set;void 0!==localStorage.ignored?(JSON.parse(localStorage.ignored).forEach(i=>ignorowani_uzytkownicy.add(i)),ignorowani_uzytkownicy.forEach(i=>{$j('div.m-list-user-item:contains('+i+')').addClass('ignored'),CHNS.listUsersOperations.ignoredUsersList.includes(i.hashCode())||CHNS.listUsersOperations.ignoredUsersList.push(i.hashCode())})):localStorage.ignored=JSON.stringify(Array.from(ignorowani_uzytkownicy)),$j('.floatbox-box-background')[0].style.background='#2c2c2c',$j('#mainHeader').remove(),$j('#m-tab-main-container-1')[0].style.height='100%',['copy','paste','contextmenu'].forEach(i=>window.addEventListener(i,i=>i.stopPropagation(),!0)),$j('div[id^=m-users-ordinary]')[0].remove(),$j('.js-play-game')[0].remove(),czateria_cleanup=function(){void 0!==$j('div[id^=m-users-ordinary]')[0]&&$j('div[id^=m-users-ordinary]')[0].remove(),void 0!==$j('.js-play-game')[0]&&$j('.js-play-game')[0].remove();for(let i=0;i<$j('div.ignored').length;i++)ignorowani_uzytkownicy.add($j('div.ignored')[i].innerText),localStorage.ignored=JSON.stringify(Array.from(ignorowani_uzytkownicy)),ignorowani_uzytkownicy.forEach(i=>{$j('div.m-list-user-item:contains('+i+')').addClass('ignored'),CHNS.listUsersOperations.ignoredUsersList.includes(i.hashCode())||CHNS.listUsersOperations.ignoredUsersList.push(i.hashCode())})};var test=setInterval(czateria_cleanup,5e3);})();
+javascript: (() => {const $j=jQuery.noConflict(),ignorowani_uzytkownicy=new Set;void 0!==localStorage.ignored?(JSON.parse(localStorage.ignored).forEach(e=>ignorowani_uzytkownicy.add(e)),ignorowani_uzytkownicy.forEach(e=>{$j('div.m-list-user-item:contains('+e+')').addClass('ignored'),CHNS.listUsersOperations.ignoredUsersList.includes(e.hashCode())||CHNS.listUsersOperations.ignoredUsersList.push(e.hashCode())})):localStorage.ignored=JSON.stringify(Array.from(ignorowani_uzytkownicy)),$j('.floatbox-box-background')[0].style.background='#2c2c2c',$j('.m-messagesTextArea')[0].style.backgroundImage='none',$j('#mainHeader').remove(),$j('#m-tab-main-container-1')[0].style.height='100%',['copy','paste','contextmenu'].forEach(e=>window.addEventListener(e,e=>e.stopPropagation(),!0)),$j('div[id^=m-users-ordinary]')[0].remove(),$j('.js-play-game')[0].remove(),czateria_cleanup=function(){$j('.m-messagesTextArea')[0].style.backgroundImage='none',void 0!==$j('div[id^=m-users-ordinary]')[0]&&$j('div[id^=m-users-ordinary]')[0].remove(),void 0!==$j('.js-play-game')[0]&&$j('.js-play-game')[0].remove();for(let e=0;e<$j('div.ignored').length;e++)ignorowani_uzytkownicy.add($j('div.ignored')[e].innerText),localStorage.ignored=JSON.stringify(Array.from(ignorowani_uzytkownicy)),ignorowani_uzytkownicy.forEach(e=>{$j('div.m-list-user-item:contains('+e+')').addClass('ignored'),CHNS.listUsersOperations.ignoredUsersList.includes(e.hashCode())||CHNS.listUsersOperations.ignoredUsersList.push(e.hashCode())})};var test=setInterval(czateria_cleanup,5e3);})();
         </div>
     </center>
 </body>
