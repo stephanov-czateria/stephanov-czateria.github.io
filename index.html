@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Czateria mod v0.9</title>
+    <title>Czateria mod v0.91</title>
     <style>
         body {
             background-color: black;
@@ -120,6 +120,10 @@ czateria_cleanup = function(){
 <font color = "lime">//zalacz licznik i czysc co 5 sekund (wymagane do wyczyszczenia niezarejestrowanych po zmianie pokoju, i wyrzucenia okna gry przy zmianie pokoju)</font>  
 var test = setInterval(czateria_cleanup, 5000);
 
+<br><br><br>
+<font color = "lime">//minified JS</font>
+
+javascript: (() => {const $j=jQuery.noConflict(),ignorowani_uzytkownicy=new Set;void 0!==localStorage.ignored?(JSON.parse(localStorage.ignored).forEach(i=>ignorowani_uzytkownicy.add(i)),ignorowani_uzytkownicy.forEach(i=>{$j('div.m-list-user-item:contains('+i+')').addClass('ignored'),CHNS.listUsersOperations.ignoredUsersList.includes(i.hashCode())||CHNS.listUsersOperations.ignoredUsersList.push(i.hashCode())})):localStorage.ignored=JSON.stringify(Array.from(ignorowani_uzytkownicy)),$j('.floatbox-box-background')[0].style.background='#2c2c2c',$j('#mainHeader').remove(),$j('#m-tab-main-container-1')[0].style.height='100%',['copy','paste','contextmenu'].forEach(i=>window.addEventListener(i,i=>i.stopPropagation(),!0)),$j('div[id^=m-users-ordinary]')[0].remove(),$j('.js-play-game')[0].remove(),czateria_cleanup=function(){void 0!==$j('div[id^=m-users-ordinary]')[0]&&$j('div[id^=m-users-ordinary]')[0].remove(),void 0!==$j('.js-play-game')[0]&&$j('.js-play-game')[0].remove();for(let i=0;i<$j('div.ignored').length;i++)ignorowani_uzytkownicy.add($j('div.ignored')[i].innerText),localStorage.ignored=JSON.stringify(Array.from(ignorowani_uzytkownicy)),ignorowani_uzytkownicy.forEach(i=>{$j('div.m-list-user-item:contains('+i+')').addClass('ignored'),CHNS.listUsersOperations.ignoredUsersList.includes(i.hashCode())||CHNS.listUsersOperations.ignoredUsersList.push(i.hashCode())})};var test=setInterval(czateria_cleanup,5e3);})();
         </div>
     </center>
 </body>
