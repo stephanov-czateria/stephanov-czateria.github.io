@@ -1,3 +1,3 @@
 function dupa() {
-  alert('dupa dupa dupa');
-};
+  alert('dupa');
+}
