@@ -1,3 +1,5 @@
-window.function dupa() {
+function dupa() {
     alert('dupa');
 };
+
+dupa()
